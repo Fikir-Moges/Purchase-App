@@ -1,0 +1,188 @@
+/* =====================================================
+   HEADER STYLES - Premium glassmorphism navigation
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Accent bar at very top ── */
+.header-accent-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #ec4899, #f97316);
+  background-size: 200% 100%;
+  animation: accentShift 4s linear infinite;
+}
+
+@keyframes accentShift {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ── Main header container ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(15, 15, 25, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Inter', system-ui, sans-serif;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.35);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ── Brand ── */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-icon {
+  font-size: 26px;
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6));
+  transition: transform 0.3s ease;
+}
+
+.header-brand:hover .brand-icon {
+  transform: rotate(-10deg) scale(1.15);
+}
+
+.brand-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f3f4f6;
+  letter-spacing: -0.5px;
+}
+
+.brand-highlight {
+  color: #a855f7;
+}
+
+/* ── Desktop nav ── */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #d1d5db;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+
+.nav-link:hover {
+  background: rgba(168, 85, 247, 0.18);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.nav-icon {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 12px;
+  padding: 9px 22px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.45);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+
+.nav-cta:hover {
+  box-shadow: 0 6px 24px rgba(124, 58, 237, 0.65);
+  transform: translateY(-2px);
+}
+
+/* ── Hamburger (mobile) ── */
+.hamburger {
+  display: none;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 18px;
+  color: #f3f4f6;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hamburger:hover {
+  background: rgba(168, 85, 247, 0.2);
+}
+
+/* ── Mobile nav ── */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 20px 16px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-nav.open {
+  display: flex;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: #d1d5db;
+  transition: background 0.2s, color 0.2s;
+}
+
+.mobile-nav-link:hover {
+  background: rgba(168, 85, 247, 0.15);
+  color: #fff;
+}
+
+.mobile-cta {
+  margin-top: 8px;
+  justify-content: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .desktop-nav { display: none; }
+  .hamburger   { display: flex; align-items: center; }
+}
